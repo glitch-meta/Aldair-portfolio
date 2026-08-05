@@ -1,0 +1,210 @@
+:root {
+    --tagColor: rgb(72, 48, 205); 
+}
+.projects-container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+  
+    overflow-x: hidden;
+    overflow-y: auto; 
+
+}
+
+.project {
+    padding: 3.5em min(2.5em, 3%);
+    gap: .5em;
+    background-color: rgba(23, 33, 62, 0.763);
+    display: grid;
+    border-radius: 15px;
+    margin: 0 2em;
+    max-width: 1400px;
+
+
+    /*for intersection observer animation*/
+    opacity: 0;
+    transition: 850ms ease;
+
+}
+
+.grid-a {
+    grid-template-columns: 1fr max(360px, 40%);
+    translate: -50%;
+}
+
+.grid-b {
+
+    display: grid;
+    grid-template-columns: max(360px, 40%) 1fr; 
+    translate: 50%;
+
+
+}
+
+.grid-a.show, .grid-b.show {
+    opacity: 1;
+    translate: 0;
+}
+
+.home-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5em;
+    font-size: 1.1rem;
+}
+
+.home-text h1 {
+    text-align: center;
+}
+
+
+.home-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.proj-img{
+    width: 100%;
+    max-width: 350px;
+    max-width: 90%;
+
+    object-fit: cover; /* Crops the image to fit without stretching */
+    display: block; /* Removes unwanted baseline spacing */
+    border-radius: 10px;
+}
+
+.flex-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-left {
+    display: flex;
+}
+
+.custom-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 5px 15px;
+    margin-top: 1em;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    background-color: rgb(24, 195, 67);
+    color: white;
+    border: solid 1px rgb(150, 255, 134);
+}
+
+.custom-btn:hover {
+    background-color: rgb(7, 240, 65);
+
+    box-shadow: 0 0px 46px 0 rgba(6, 246, 62, 0.493);
+
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+/*
+.tag {
+    background-color: rgba(156, 216, 255, 0.787);
+    border: solid rgb(255, 255, 255) 3px;
+    padding: 1px 6px;
+    border-radius: 14px;
+    color: rgb(61, 61, 61);
+}
+*/
+.grid-a .tag {
+    padding: 2px 10px;
+    background-color: var(--tagColor);
+    /* Skew along the X-axis by 20 degrees */
+    transform: skewX(-25deg); 
+    border: solid rgb(255, 255, 255) 3px;
+
+}
+
+/* Optional: Keep the nested text straight */
+.grid-a .tag p {
+    transform: skewX(25deg); 
+    color: white;
+
+}
+
+.grid-b .tag {
+    padding: 2px 10px;
+    background-color: var(--tagColor);
+    /* Skew along the X-axis by 20 degrees */
+    transform: skewX(25deg); 
+    border: solid rgb(255, 255, 255) 3px;
+
+}
+
+/* Optional: Keep the nested text straight */
+.grid-b .tag p {
+    transform: skewX(-25deg); 
+    color: white;
+
+}
+
+.home-img-mobile {
+    display: none;
+}
+
+
+
+
+
+@media (max-width: 880px) {
+    .grid-a, .grid-b {
+        grid-template-columns: 1fr; /* Stack the columns on smaller screens */
+    }
+
+    .home-img {
+        display: none;
+    }
+
+    .home-img-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .project {
+    background-color: unset;
+    padding: 2.5em min(2.5em, 1%);
+
+    }
+    
+    .grid-a, .grid-b, .home-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .custom-btn svg{
+        display: none;
+    }
+
+    .custom-btn {
+        padding: 15px;
+    }
+
+    .projects-container {
+        gap: 0;
+    }
+}

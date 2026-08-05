@@ -1,0 +1,247 @@
+body {
+    
+    padding: unset;
+    overflow: hidden;
+
+    
+}
+
+.home-container {
+    padding: 7em 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    height: 100vh;
+    height: 100dvh;
+
+    /*keyframe animations*/
+    -webkit-animation: fadein 1.4s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1.4s; /* Firefox < 16 */
+    -ms-animation: fadein 1.4s; /* Internet Explorer */
+    -o-animation: fadein 1.4s; /* Opera < 12.1 */
+    animation: fadein 1.4s;
+
+}
+
+.home-grid {
+    width: max(60%, 1200px);
+    padding: 3.5em min(6em, 5%);
+    gap: 3em;
+    background-color: rgb(19, 28, 53);
+    display: grid;
+    grid-template-columns: 1fr 40%;
+    border-radius: 15px;
+    margin: 0 2em;
+    position: relative;
+    
+
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.home-grid::after, .home-grid::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -5;
+    padding: 5px;
+    border-radius: 15px;
+    background-image: conic-gradient(from var(--angle), blue, cyan, purple, red, blue);
+    background-image: conic-gradient(from var(--angle), blue, transparent, red, transparent, blue);
+
+    animation: 5s rotate linear infinite;
+}
+
+.home-grid::before {
+    filter: blur(1.4rem);
+}
+
+.home-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5em;
+    font-size: 1.1rem;
+}
+
+
+.home-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.home-img-mobile {
+    display: none;
+}
+
+.web-img{
+  width: 100%;
+  max-width: 450px;
+  object-fit: cover; /* Crops the image to fit without stretching */
+  display: block; /* Removes unwanted baseline spacing */
+  filter: drop-shadow(7px 10px 0px #00EFEB);
+}
+
+.custom-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    padding: 10px 30px;
+    margin-top: 1em;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    background-color: rgb(24, 195, 67);
+    color: white;
+    border: solid 1px rgb(150, 255, 134);
+}
+
+.custom-btn:hover {
+    background-color: rgb(7, 240, 65);
+
+    box-shadow: 0 0px 46px 0 rgba(6, 246, 62, 0.493);
+
+}
+
+
+
+
+
+
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+
+@keyframes rotate {
+    from { --angle: 0deg; }
+    to   { --angle: 360deg; }
+}
+
+
+
+@media (max-height: 730px) and (min-width: 730px) {
+
+
+    
+
+
+    body {
+        padding: unset;
+        overflow-y: auto;
+    }
+
+    .home-container {
+        padding: 7em 0;
+        height: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .home-grid {
+        width: max(60%, 1200px);
+        padding: 3.5em min(6em, 3%);
+        gap: 1em;
+        background-color: rgb(19, 28, 53);
+        display: grid;
+        grid-template-columns: 1fr 40%;
+        border-radius: 15px;
+        margin: 0 2em;
+        position: relative;
+
+    }
+}
+
+
+
+@media (max-width: 730px) { 
+
+
+    .home-img {
+        display: none;
+
+    }
+
+    .home-img-mobile {
+        display: flex;
+        justify-content: center;
+    }
+
+    .web-img {
+        max-height: 300px;
+        object-fit: contain;
+        width: 80%;
+    }
+
+    .home-grid {
+        display: flex;
+        justify-content: center;
+        padding: min(3em, 5%);
+        margin: unset;
+        background-color: unset;
+    }
+
+    .home-grid h1 {
+        text-align: center;
+    }
+
+    .home-container {
+        overflow: auto;
+        height: 100%;
+        padding: 2em 0;
+    }
+
+    .home-text {
+        padding: 1em;
+        gap: 2em;
+    }
+
+    body {        
+        overflow: auto;
+        display: block;
+    } 
+   
+    .home-grid::after, .home-grid::before {
+        display: none;
+    }
+
+
+}

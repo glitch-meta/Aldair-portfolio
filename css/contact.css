@@ -1,0 +1,143 @@
+body {
+    min-height: 100vh;
+    padding-bottom: 35px;
+    align-items: center;
+}
+
+.contact-container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+  
+    overflow-x: hidden;
+    overflow-y: auto; 
+    overflow: hidden;
+}
+
+.contact-form {
+    
+    /*keyframe animations*/
+    -webkit-animation: fadein 1.4s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1.4s; /* Firefox < 16 */
+    -ms-animation: fadein 1.4s; /* Internet Explorer */
+    -o-animation: fadein 1.4s; /* Opera < 12.1 */
+    animation: fadein 1.4s;
+
+    width: min(92%, 700px);
+    
+    padding: 2.5em min(3em, 4%);
+
+    gap: 2em;
+    background-color: rgb(19, 28, 53);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    margin: 0 2em;
+
+
+}
+
+.contact-form h1{
+    text-align: center;
+    font-size: 2.8rem;
+}
+
+.contact-form label {
+    font-size: 1.4rem;
+}
+
+.contact-form div {
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+
+}
+
+.contact-form input, #subject {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+
+#subject { /*text areea*/
+    height: 150px;
+    max-height: 500px;
+    max-width: 100%;
+    min-height: 50px;
+    min-width: 50%;
+    padding: 15px;
+}
+
+.custom-btn {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 1.4rem;
+    padding: 10px 30px;
+    width: 30%;
+    margin-top: 1em;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    background-color: rgb(24, 195, 67);
+    color: white;
+    border: solid 1px rgb(150, 255, 134);
+}
+
+.custom-btn:hover {
+    background-color: rgb(7, 240, 65);
+    box-shadow: 0 0px 46px 0 rgba(6, 246, 62, 0.493);
+
+}
+
+
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+
+
+@media (max-width: 540px) { 
+
+    body {
+        padding-top: 100px;
+    }
+
+    .contact-form {
+        background-color: unset;
+    }
+
+
+}

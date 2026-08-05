@@ -1,0 +1,231 @@
+:root {
+    --color1: rgb(16, 14, 27); 
+    --color2: #228dff;
+    --color3: rgb(52, 52, 52); 
+    --textColor: white;
+    --navHeight: 4.6em;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Andale Mono, monospace;
+}
+
+
+body {
+    background-color: rgb(22, 22, 23);
+    color: white;
+    padding: 120px 0;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    height: var(--navHeight);
+    width: 100%;
+    /*display: flex;
+    justify-content: flex-end; /*moves nav links to the right*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 14px;
+    z-index: 10;
+
+}
+
+.links-container {
+    height: 100%;
+    width: 1200px;
+    display: flex;
+    flex-direction: row;/* not needed, but added here to be modified later*/
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    background-color: var(--color3);
+    border-radius: 0 0 7px 7px;
+
+
+}
+
+.nav-tag {
+    height: 100%;
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--textColor) !important;
+    border-radius: 0 0 7px 7px;
+    text-decoration: none;
+}
+
+.nav-tag, .open-sidebar-btn {
+    transition: background-color 0.3s; /*navbar hover fade animation*/
+
+}
+
+.nav-tag:hover {
+    background-color: var(--color2);
+    color: var(--color1) !important;
+}
+
+.nav-tag:hover svg {
+    fill: var(--color1);
+}
+
+.open-sidebar-btn {
+    display: none;
+
+}
+
+/************************************/
+#sidebar-dialog {
+
+    background-color: rgb(33, 33, 33);
+}
+
+
+
+.sidebar-container {
+    position: fixed;
+    top: 0;
+    right: 0%; /*hide sidebar*/
+    width: 15em;
+    height: 100vh;
+    z-index: 3;
+    transition: right 400ms;
+    background-color: rgb(33, 33, 33);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1em;
+    
+
+}
+
+.sidebar-container.showSidebar{
+    animation: show-sidebar .4s;
+
+
+}
+
+.sidebar-container.hideSidebar {
+    animation: hide-sidebar .4s;
+}
+
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.352);
+}
+
+/************************************/
+
+
+
+button, a, .custom-btn {
+    cursor: pointer;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip {
+    transform: rotate(180deg);
+}
+
+.custom-btn {
+    color: white !important;
+    text-decoration: none;
+}
+
+/* Unvisited link */
+a:link {
+  color: #007bff; /* Change to your preferred color */
+}
+
+/* Visited link */
+a:visited {
+  color: #9a86ff; /* Change to your preferred color */
+}
+
+
+
+/*Animations for opening and closing sidebar*/
+@keyframes show-sidebar {
+  0%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+
+@keyframes hide-sidebar {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+
+
+@media (max-width: 730px) { 
+
+
+    .links-container {
+        display: none;
+    }
+
+    .navbar {
+        justify-content: flex-end;
+        padding: unset;
+        background-color: var(--color3); 
+        height: 60px;
+    }
+
+    .open-sidebar-btn {
+        display: block;
+        z-index: 100;
+        background-color: unset;
+        border: unset;
+        height: 100%;
+        padding: 8px;
+        aspect-ratio: 1 / 1;    /*keep the button as a square*/
+        background-color: rgba(0, 0, 0, 0.494);
+    }
+
+    .open-sidebar-btn:hover {
+        background-color: #007bff;
+    }
+
+
+    .nav-tag {
+
+        justify-content: flex-start;
+        border-radius: unset;
+        font-size: 1.1rem;
+        padding: 0 40px;
+        height: 70%;
+    }
+
+    .nav-tag.close-sidebar-btn {
+        
+        padding: 0 10px;
+
+    }
+    .nav-tag.close-sidebar-btn:hover {
+    
+        background-color: rgb(255, 18, 18);
+    }
+
+
+
+
+}
