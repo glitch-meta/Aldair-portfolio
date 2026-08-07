@@ -44,7 +44,7 @@ span.addEventListener("click", () => {
 })
     */
 function closeModal(modalID){
-    console.log("clicked close");
+    //console.log("clicked close");
 
     const modal = document.getElementById(modalID);
     modal.style.display = "none";
@@ -88,10 +88,22 @@ sidebarDialog.addEventListener("click", (event) => {
 
 
 
-   
+//form submission modal
+const formDialog = document.getElementById('form-dialog');
+const closeFormDialog = document.getElementById('close-form-dialog');
 
+
+  closeFormDialog.addEventListener('click', () => {
+    console.log('click');
+    formDialog.classList.remove('show'); //remove show class from #form-dialog
+    formDialog.close(); 
+  });
+
+
+   
+//form submission in contact.html
 const form = document.getElementById('form');
-const submitBtn = form.querySelector('button[type="submit"]');
+const submitBtn = document.getElementById('submit-btn');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -113,7 +125,10 @@ form.addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if (response.ok) {
-            alert("Success! Your message has been sent.");
+            //alert("Success! Your message has been sent.");
+            formDialog.showModal();
+            //add show class to #form-dialog
+            formDialog.classList.add('show'); //add show class to #form-dialog
             form.reset();
         } else {
             alert("Error: " + data.message);

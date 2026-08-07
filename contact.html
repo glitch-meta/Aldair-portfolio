@@ -42,10 +42,8 @@
 
 
     <div class="contact-container">
-        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <form id="form" class="contact-form">
             <h1>Get in touch</h1>
-            
-            <input type="hidden" name="access_key" value="6e70c385-43fa-4e75-8091-7eb46e6dc121">
 
             <div>
                 <label for="name">Name</label>
@@ -63,10 +61,20 @@
             </div>
 
             <div>
-                <input class="custom-btn" type="submit" value="Submit" onclick="submitForm()">
+                <input class="custom-btn" id="submit-btn" type="submit" value="Submit">
             </div>
         </form>
     </div>
+    
+    <!--Dialog modal-->
+    <dialog id="form-dialog">
+        <div class="form-modal-inner">
+            <h1>Form successfully submitted!</h1>
+            <p>Thank you for reaching out! I will respond to your email as soon as I can.</p>
+
+            <button id="close-form-dialog" class="custom-btn">Close</button>
+        </div>
+    </dialog>
     
 
     <script src="script.js"></script>

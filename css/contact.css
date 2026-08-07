@@ -76,6 +76,38 @@ body {
     padding: 15px;
 }
 
+
+
+#form-dialog.show{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    /* Flexbox centering magic */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+}
+
+.form-modal-inner {
+    background-color: rgb(54, 57, 57);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: min(1.5em, 5%);
+    gap: 15px;
+    border-radius: 10px;
+    width: min(470px, 95%);
+}
+
+#form-dialog h1, #form-dialog p {
+    color: white;
+    text-align: center;
+}
+
 .custom-btn {
     display: flex;
     justify-content: center;
