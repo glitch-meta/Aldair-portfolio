@@ -29,7 +29,7 @@ body {
     width: max(60%, 1200px);
     padding: 3.5em min(6em, 5%);
     gap: 3em;
-    background-color: rgb(19, 28, 53);
+    background-color: rgb(25, 38, 70);
     display: grid;
     grid-template-columns: 1fr 40%;
     border-radius: 15px;

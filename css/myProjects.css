@@ -19,7 +19,7 @@
 .project {
     padding: 3.5em min(2.5em, 3%);
     gap: .5em;
-    background-color: rgba(23, 33, 62, 0.763);
+    background-color: rgb(25, 38, 70);
     display: grid;
     border-radius: 15px;
     margin: 0 2em;

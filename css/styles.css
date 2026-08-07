@@ -1,6 +1,6 @@
 :root {
     --color1: rgb(16, 14, 27); 
-    --color2: #228dff;
+    --color2: #f0f41c;
     --color3: rgb(52, 52, 52); 
     --textColor: white;
     --navHeight: 4.6em;
@@ -154,6 +154,25 @@ a:visited {
   color: #9a86ff; /* Change to your preferred color */
 }
 
+.sidebar-container .nav-tag {
+
+    justify-content: flex-start;
+    border-radius: unset;
+    font-size: 1.1rem;
+    padding: 0 40px;
+    height: 70%;
+}
+
+.nav-tag.close-sidebar-btn {
+    
+    padding: 0 10px;
+
+}
+
+.nav-tag.close-sidebar-btn:hover {
+
+    background-color: rgb(255, 18, 18);
+}
 
 
 /*Animations for opening and closing sidebar*/
@@ -206,24 +225,7 @@ a:visited {
     }
 
 
-    .nav-tag {
 
-        justify-content: flex-start;
-        border-radius: unset;
-        font-size: 1.1rem;
-        padding: 0 40px;
-        height: 70%;
-    }
-
-    .nav-tag.close-sidebar-btn {
-        
-        padding: 0 10px;
-
-    }
-    .nav-tag.close-sidebar-btn:hover {
-    
-        background-color: rgb(255, 18, 18);
-    }
 
 
 

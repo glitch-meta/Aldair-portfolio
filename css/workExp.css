@@ -52,7 +52,7 @@
 .grid-container {
     overflow-y: hidden;
     padding: min(1.5em, 2%);
-    background-color: rgba(23, 33, 62, 0.763);
+    background-color: rgb(25, 38, 70);
     border-radius: 15px;
 
     display: grid;
