@@ -89,7 +89,6 @@ sidebarDialog.addEventListener("click", (event) => {
 
 
 //form submission modal
-//form submission modal
 const formDialog = document.getElementById('form-dialog');
 const closeFormDialog = document.getElementById('close-form-dialog');
 
@@ -103,10 +102,40 @@ closeFormDialog.addEventListener('click', () => {
    
 //form submission in contact.html
 const submitBtn = document.getElementById('submit-btn');
-
-
 const form = document.getElementById('form');
 //const result = document.getElementById('result');
+const name = document.getElementById('name');
+const email = document.getElementById('email');
+const subject = document.getElementById('subject');
+
+// Listen for typing events and save to sessionStorage
+name.addEventListener('input', () => {
+    sessionStorage.setItem('name', name.value);
+});
+
+email.addEventListener('input', () => {
+    sessionStorage.setItem('email', email.value);
+});
+
+subject.addEventListener('input', () => {
+    sessionStorage.setItem('subject', subject.value);
+});
+
+// Load saved values from sessionStorage on page load
+window.addEventListener('load', () => {
+    if (sessionStorage.getItem('name')) {
+        name.value = sessionStorage.getItem('name');
+    }
+
+    if (sessionStorage.getItem('email')) {
+        email.value = sessionStorage.getItem('email');
+    }
+
+    if (sessionStorage.getItem('subject')) {
+        subject.value = sessionStorage.getItem('subject');
+    }
+
+});
 
 form.addEventListener('submit', function(e) {
     const formData = new FormData(form);
