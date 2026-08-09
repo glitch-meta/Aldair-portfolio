@@ -89,55 +89,61 @@ sidebarDialog.addEventListener("click", (event) => {
 
 
 //form submission modal
+//form submission modal
 const formDialog = document.getElementById('form-dialog');
 const closeFormDialog = document.getElementById('close-form-dialog');
 
 
-  closeFormDialog.addEventListener('click', () => {
-    console.log('click');
+closeFormDialog.addEventListener('click', () => {
     formDialog.classList.remove('show'); //remove show class from #form-dialog
     formDialog.close(); 
-  });
+});
 
 
    
 //form submission in contact.html
-const form = document.getElementById('form');
 const submitBtn = document.getElementById('submit-btn');
 
-form.addEventListener('submit', async (e) => {
+
+const form = document.getElementById('form');
+//const result = document.getElementById('result');
+
+form.addEventListener('submit', function(e) {
+    const formData = new FormData(form);
     e.preventDefault();
 
-    const formData = new FormData(form);
-    formData.append("access_key", "2cd7579d-942a-444a-a122-dd2348909469");
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
-    const originalText = submitBtn.textContent;
 
-    submitBtn.textContent = "Sending...";
-    submitBtn.disabled = true;
-
-    try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            //alert("Success! Your message has been sent.");
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
             formDialog.showModal();
             //add show class to #form-dialog
             formDialog.classList.add('show'); //add show class to #form-dialog
             form.reset();
-        } else {
-            alert("Error: " + data.message);
-        }
-
-    } catch (error) {
-        alert("Something went wrong. Please try again.");
-    } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
+            } else {
+                console.log(response);
+                
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            
+        })
+        .then(function() {
+            form.reset();
+            setTimeout(() => {
+                //result.style.display = "none";
+            }, 3000);
+        });
 });
