@@ -1,6 +1,10 @@
 :root {
     --tagColor: rgb(72, 48, 205); 
 }
+
+
+
+
 .projects-container {
 
     display: flex;
@@ -167,12 +171,21 @@
 
 
 @media (max-width: 880px) {
+
+    body {
+        padding-top: 60px;
+    }
+
     .grid-a, .grid-b {
         grid-template-columns: 1fr; /* Stack the columns on smaller screens */
     }
 
     .home-img {
         display: none;
+    }
+
+    .home-text a {
+        word-break: break-all;
     }
 
     .home-img-mobile {
@@ -183,10 +196,12 @@
     }
 
     .project {
-    background-color: unset;
-    padding: 2.5em min(2.5em, 1%);
+        background-color: unset;
+        padding: 2.5em min(2.5em, 1%);
 
     }
+
+
     
     .grid-a, .grid-b, .home-text {
         display: flex;
@@ -194,6 +209,7 @@
         justify-content: center;
         align-items: center;
         gap: 1em;
+        width: 92%;
     }
 
     .custom-btn svg{
@@ -202,6 +218,7 @@
 
     .custom-btn {
         padding: 15px;
+        font-size: 1rem;
     }
 
     .projects-container {

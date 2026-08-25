@@ -156,10 +156,10 @@ form.addEventListener('submit', function(e) {
         .then(async (response) => {
             let json = await response.json();
             if (response.status == 200) {
-            formDialog.showModal();
-            //add show class to #form-dialog
-            formDialog.classList.add('show'); //add show class to #form-dialog
-            form.reset();
+                formDialog.showModal();
+                //add show class to #form-dialog
+                formDialog.classList.add('show'); //add show class to #form-dialog
+                form.reset();
             } else {
                 console.log(response);
                 
