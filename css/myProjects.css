@@ -201,7 +201,9 @@
 
     }
 
-
+    .tag-container {
+        justify-content: center;
+    }
     
     .grid-a, .grid-b, .home-text {
         display: flex;
